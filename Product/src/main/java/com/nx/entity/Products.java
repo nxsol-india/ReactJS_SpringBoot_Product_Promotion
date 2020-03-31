@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +22,8 @@ public class Products implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="product_id")
-	private String productId;
+	@Column(name="product_code")
+	private String productCode;
 
 	@Column(name="product_name")
 	private String productName;
@@ -43,14 +44,6 @@ public class Products implements Serializable{
 		this.id = id;
 	}
 
-	public String getProductId() {
-		return productId;
-	}
-
-	public void setProductId(String productId) {
-		this.productId = productId;
-	}
-
 	public String getProductName() {
 		return productName;
 	}
@@ -65,6 +58,22 @@ public class Products implements Serializable{
 
 	public void setPricePerMonth(Double pricePerMonth) {
 		this.pricePerMonth = pricePerMonth;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	public Set<ProductPromotion> getProductPromotion() {
+		return productPromotion;
+	}
+
+	public void setProductPromotion(Set<ProductPromotion> productPromotion) {
+		this.productPromotion = productPromotion;
 	}
 
 }

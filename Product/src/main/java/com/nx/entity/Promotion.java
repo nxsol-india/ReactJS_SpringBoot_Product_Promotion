@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="promotion")
 public class Promotion implements Serializable {
@@ -33,8 +35,6 @@ public class Promotion implements Serializable {
 	@Column(name="minimum_bill_Value")
 	private Double minMumBill;
 	
-	@OneToMany(mappedBy = "products")
-	Set<ProductPromotion> productPromotion;
 	
 
 	public Long getId() {
@@ -61,5 +61,26 @@ public class Promotion implements Serializable {
 		this.description = description;
 	}
 
+	public Long getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(Long discount) {
+		this.discount = discount;
+	}
+
+	public Double getMinMumBill() {
+		return minMumBill;
+	}
+
+	public void setMinMumBill(Double minMumBill) {
+		this.minMumBill = minMumBill;
+	}
+
+	
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 }

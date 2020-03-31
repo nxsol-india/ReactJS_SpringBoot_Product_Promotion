@@ -2,6 +2,7 @@ package com.nx.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nx.entity.ProductPromotion;
 import com.nx.entity.Products;
 import com.nx.repository.ProductPromotionRepository;
 import com.nx.repository.ProductsRepository;
@@ -31,7 +33,15 @@ public class ProductController {
 	
 	@GetMapping
 	public List<Products> findAll() {
-		System.out.println("find..........");
+	/*	List<Products> lst = productsRepository.findAll();
+		for (Products products : lst) {
+			Set<ProductPromotion> setProductPromotion = products.getProductPromotion();
+			for (ProductPromotion productPromotion : setProductPromotion) {
+				
+				System.out.println(productPromotion.get);
+			}
+		}*/
+		
 		return productsRepository.findAll();
 	}
 	

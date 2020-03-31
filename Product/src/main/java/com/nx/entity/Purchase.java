@@ -21,16 +21,16 @@ public class Purchase implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name="product")
-	private Products products;
-
 	@Column(name="total_no_of_product")
 	private Long totalNoOfProduct;
 	
 	@ManyToOne
 	@JoinColumn(name="promo_code_id")
 	private Promotion promotion;
+	
+	@ManyToOne
+	@JoinColumn(name="product")
+	private Products products;
 	
 	@Column(name="total")
 	private Double total;
